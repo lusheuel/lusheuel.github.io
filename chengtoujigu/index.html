@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城头击鼓传花枝 - 传统民俗游戏玩法、规则与历史渊源</title>
+    <meta name="description" content="城头击鼓传花枝，又称击鼓传花，是中国传统民俗娱乐活动。本站详细介绍游戏的历史起源、经典规则玩法、变体形式（如击鼓传花、击鼓传令）、现代应用场景及注意事项，助您体验传统文化乐趣。">
+    <meta name="keywords" content="城头击鼓传花枝, 击鼓传花, 传统游戏, 民俗文化, 节日活动, 互动游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513; /* 鞍褐色，古朴 */
+            --secondary-color: #D2691E; /* 巧克力色，活力 */
+            --accent-color: #FFD700; /* 金色，花枝与鼓点 */
+            --bg-color: #FDF5E6; /* OldLace，羊皮纸色 */
+            --text-color: #333333;
+            --light-text: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/cultural/1920/600') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* 通用标题样式 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* 历史渊源卡片 */
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .history-text h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .history-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .history-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* 规则与玩法 */
+        .rules-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .rules-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .rule-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+
+        .rule-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .rule-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* 模拟游戏演示区 */
+        .game-demo {
+            background-color: #2c3e50;
+            color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .game-controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6c200;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: #333;
+        }
+
+        .game-status {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            min-height: 40px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 变体与场景 */
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .variant-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+        }
+
+        .variant-item h4 {
+            color: var(--secondary-color);
+            margin: 10px 0;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--light-text);
+            display: none;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+
+            .variants-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span>🔔</span> 城头击鼓传花枝
+            </div>
+            <ul class="nav-links">
+                <li><a href="#history">历史渊源</a></li>
+                <li><a href="#rules">经典玩法</a></li>
+                <li><a href="#demo">在线演示</a></li>
+                <li><a href="#variants">变体形式</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>城头击鼓传花枝</h1>
+            <p>探寻中国传统民俗娱乐活动的精髓，从古至今的欢聚时刻，体验“闻鼓而动，得花而罚”的独特乐趣。</p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="container">
+        <div class="section-title">
+            <h2>历史渊源</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="history-grid">
+            <div class="history-text">
+                <h3>古韵流长</h3>
+                <p>“城头击鼓传花枝”是中国古代节日庆典和文人雅集中常见的娱乐活动，亦称“击鼓传花”。据《燕京岁时记》等文献记载，此类游戏最早盛行于唐宋时期，每逢元宵节或文人聚会，便有击鼓传花之举。</p>
+                <p>其核心在于“鼓声停而花止”，花枝在众人手中传递，鼓声未停则不可停留。这种形式既考验参与者的反应速度，又充满了未知的惊喜与紧张感，是古代社交场合中调节气氛、联络感情的绝佳方式。</p>
+            </div>
+            <div class="history-card">
+                <h3>文化寓意</h3>
+                <p>“花”象征着吉祥与美好，而“击鼓”则代表着节奏与动态。花枝在人群中穿梭，寓意着好运的传递。被“传”到的人通常需要接受某种形式的“惩罚”或“奖励”，这种不确定性增加了游戏的趣味性和社交张力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>经典规则与玩法</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="rules-container">
+                <article class="rule-card">
+                    <span class="rule-icon">🥁</span>
+                    <h3>击鼓</h3>
+                    <p>一人或多人击鼓（或摇铃、吹笛），节奏时快时慢，忽高忽低。鼓声是游戏的唯一信号，节奏的快慢直接影响游戏的紧张程度。</p>
+                </article>
+                <article class="rule-card">
+                    <span class="rule-icon">🌸</span>
+                    <h3>传花</h3>
+                    <p>参与者围坐一圈（或站成一排），在鼓声响起时，将手中的“花枝”（可用鲜花、绢花、手绢甚至玩具代替）依次传递给下一位。</p>
+                </article>
+                <article class="rule-card">
+                    <span class="rule-icon">⏸️</span>
+                    <h3>停顿</h3>
+                    <p>当鼓声突然停止时，花枝在谁手中，谁即为“中奖者”。游戏要求在鼓声未停前，花枝必须持续传递，不可私自藏匿或故意截留。</p>
+                </article>
+                <article class="rule-card">
+                    <span class="rule-icon">🎭</span>
+                    <h3>罚则/奖励</h3>
+                    <p>中奖者通常需要表演一个小节目（如唱歌、讲笑话、猜谜语），或者接受一些轻微的惩罚（如喝一杯特制饮料），以活跃气氛。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="game-demo">
+        <div class="container">
+            <h2>在线体验：城头击鼓传花</h2>
+            <p>模拟传统游戏流程，感受紧张刺激的节奏。</p>
+            
+            <div class="game-status" id="gameStatus">准备开始...</div>
+            
+            <div id="gameArea">
+                <div class="game-controls">
+                    <button class="btn btn-primary" onclick="startGame()">开始击鼓</button>
+                    <button class="btn btn-secondary" onclick="stopGame()">停止鼓声</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variants Section -->
+    <section id="variants" class="container">
+        <div class="section-title">
+            <h2>变体形式</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="variants-grid">
+            <div class="variant-item">
+                <h4>击鼓传令</h4>
+                <p>用于军事或紧急通讯。鼓声代表命令的传递，信号停止时，最后接到命令的人必须立即执行，容不得半点迟疑。</p>
+            </div>
+            <div class="variant-item">
+                <h4>抢凳子</h4>
+                <p>现代改良版。音乐停止时，参与者争抢有限的座位，未抢到者淘汰。本质上保留了“动静转换”的核心机制。</p>
+            </div>
+            <div class="variant-item">
+                <h4>击鼓传宝</h4>
+                <p>常用于公司团建。传递的物品可能是象征性的“宝物”，传到的人需要分享一个秘密或展示一个才艺，增加团队凝聚力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">鼓声停了，但花枝在两个人手里怎么办？</div>
+                    <div class="faq-answer">
+                        <p>这是一种常见的争议情况。通常的处理方式是：两人共同接受“惩罚”或共同表演节目，或者通过“石头剪刀布”决出胜负。规则应在游戏开始前由主持人明确。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">游戏道具必须用真的花吗？</div>
+                    <div class="faq-answer">
+                        <p>不需要。为了安全和卫生，现代游戏中常用绢花、塑料花、毛绒玩具或者手绢代替鲜花。只要能象征性地代表“花”即可。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">适合多少人的游戏？</div>
+                    <div class="faq-answer">
+                        <p>最少3人即可开始，但人数越多，传递的速度和紧张感越强，通常建议10人以上效果最佳。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 城头击鼓传花枝民俗文化展示页. All Rights Reserved.</p>
+        <p>传承传统文化，丰富现代生活。</p>
+    </div>
+</footer>
+
+<script>
+    // 简单的游戏逻辑
+    let gameInterval;
+    let isPlaying = false;
+    let statusEl = document.getElementById('gameStatus');
+    let gameArea = document.getElementById('gameArea');
+
+    function startGame() {
+        if (isPlaying) return;
+        
+        isPlaying = true;
+        statusEl.innerText = "鼓声响起！花枝正在传递中...";
+        statusEl.style.color = "#FFD700";
+        
+        // 模拟随机节奏
+        gameInterval = setInterval(() => {
+            const randomText = ["传递中...", "快传！", "小心...", "鼓声急！"];
+            statusEl.innerText = randomText[Math.floor(Math.random() * randomText.length)];
+        }, 800);
+    }
+
+    function stopGame() {
+        if (!isPlaying) {
+            statusEl.innerText = "请先点击“开始击鼓”！";
+            return;
+        }
+        
+        clearInterval(gameInterval);
+        isPlaying = false;
+        statusEl.innerText = "鼓声停止！花枝在手中！";
+        statusEl.style.color = "#fff";
+        
+        // 隐藏按钮，显示结果
+        gameArea.innerHTML = `
+            <div style="margin-top: 20px; font-size: 1.2rem; color: #4CAF50;">
+                🎉 恭喜！本轮游戏结束，花枝已停！ 🎉
+            </div>
+            <button class="btn btn-primary" onclick="resetGame()" style="margin-top: 20px;">再玩一次</button>
+        `;
+    }
+
+    function resetGame() {
+        gameArea.innerHTML = `
+            <div class="game-controls">
+                <button class="btn btn-primary" onclick="startGame()">开始击鼓</button>
+                <button class="btn btn-secondary" onclick="stopGame()">停止鼓声</button>
+            </div>
+        `;
+        statusEl.innerText = "准备开始...";
+        statusEl.style.color = "#fff";
+    }
+
+    // FAQ 折叠逻辑
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
