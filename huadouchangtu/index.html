@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都长途客运站官方网站，提供花都客运站时刻表、班次查询、在线购票、票价信息及汽车客运服务指南。">
+    <meta name="keywords" content="花都长途客运站, 花都汽车站时刻表, 花都客运站购票, 广州花都长途汽车站">
+    <title>花都长途客运站-时刻表查询与在线购票服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #0088cc;
+            --accent-color: #ff9800;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+            background: #eef4ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: -40px auto 0;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn-large {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .search-btn-large:hover {
+            background-color: #e68900;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            color: var(--text-main);
+            margin-right: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Route Cards */
+        .route-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .route-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid transparent;
+        }
+
+        .route-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-top-color: var(--primary-color);
+        }
+
+        .route-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .route-destination {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .route-price {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .route-info-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .route-info-list li span:last-child {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .route-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Info Sections */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .info-list {
+            margin-top: 15px;
+        }
+
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 24px;
+            line-height: 14px;
+            margin-right: 10px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .info-list p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .contact-box {
+            background: #eef4ff;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-item strong {
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                margin-top: 0;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .route-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                花都长途客运站
+                <span>官方服务平台</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">班次查询</a></li>
+                    <li><a href="#">线路大全</a></li>
+                    <li><a href="#">购票指南</a></li>
+                    <li><a href="#">失物招领</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">立即购票</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>便捷出行，连接你我</h1>
+            <p>提供全方位的长途汽车客运服务，安全、准时、舒适</p>
+            
+            <div class="search-box">
+                <div class="form-group">
+                    <label>出发地</label>
+                    <select>
+                        <option>花都客运站</option>
+                        <option>广州北站</option>
+                        <option>狮岭站</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>目的地</label>
+                    <select>
+                        <option>深圳市</option>
+                        <option>东莞市</option>
+                        <option>佛山市</option>
+                        <option>中山市</option>
+                        <option>清远市</option>
+                        <option>韶关市</option>
+                        <option>广西区</option>
+                        <option>湖南省</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>出发日期</label>
+                    <input type="date">
+                </div>
+                <div class="form-group" style="flex: 0 0 auto;">
+                    <button class="search-btn-large">查询班次</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 热门线路 -->
+        <section>
+            <div class="section-title">
+                <h2>热门目的地</h2>
+            </div>
+            <div class="route-grid">
+                <!-- Card 1 -->
+                <article class="route-card">
+                    <div class="route-header">
+                        <span class="route-destination">深圳市</span>
+                        <span class="route-price">¥ 45 - 60</span>
+                    </div>
+                    <ul class="route-info-list">
+                        <li><span>发车时间</span> <span>06:30 - 18:30 (每30分钟一班)</span></li>
+                        <li><span>车型</span> <span>豪华大巴</span></li>
+                        <li><span>行程</span> <span>约 3.5 小时</span></li>
+                    </ul>
+                    <div class="route-actions">
+                        <a href="#" class="btn-outline">查看详情</a>
+                        <a href="#" class="btn-primary">立即预订</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="route-card">
+                    <div class="route-header">
+                        <span class="route-destination">东莞市</span>
+                        <span class="route-price">¥ 35 - 45</span>
+                    </div>
+                    <ul class="route-info-list">
+                        <li><span>发车时间</span> <span>06:45 - 19:00 (每40分钟一班)</span></li>
+                        <li><span>车型</span> <span>舒适大巴</span></li>
+                        <li><span>行程</span> <span>约 2.5 小时</span></li>
+                    </ul>
+                    <div class="route-actions">
+                        <a href="#" class="btn-outline">查看详情</a>
+                        <a href="#" class="btn-primary">立即预订</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="route-card">
+                    <div class="route-header">
+                        <span class="route-destination">佛山市</span>
+                        <span class="route-price">¥ 25 - 35</span>
+                    </div>
+                    <ul class="route-info-list">
+                        <li><span>发车时间</span> <span>07:00 - 20:00 (流水发车)</span></li>
+                        <li><span>车型</span> <span>快线大巴</span></li>
+                        <li><span>行程</span> <span>约 1.5 小时</span></li>
+                    </ul>
+                    <div class="route-actions">
+                        <a href="#" class="btn-outline">查看详情</a>
+                        <a href="#" class="btn-primary">立即预订</a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="route-card">
+                    <div class="route-header">
+                        <span class="route-destination">清远市</span>
+                        <span class="route-price">¥ 30 - 40</span>
+                    </div>
+                    <ul class="route-info-list">
+                        <li><span>发车时间</span> <span>06:00 - 18:30 (每60分钟一班)</span></li>
+                        <li><span>车型</span> <span>高速直达</span></li>
+                        <li><span>行程</span> <span>约 1 小时 30 分</span></li>
+                    </ul>
+                    <div class="route-actions">
+                        <a href="#" class="btn-outline">查看详情</a>
+                        <a href="#" class="btn-primary">立即预订</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 信息区 -->
+        <div class="info-grid">
+            <section class="info-card">
+                <div class="section-title">
+                    <h2>服务指南</h2>
+                </div>
+                <ul class="info-list">
+                    <li>
+                        <strong>实名制购票与乘车</strong>
+                        <p>所有乘客需持本人有效身份证件购票及检票，请务必携带身份证件出行。学生、老人等特殊群体可享受相应票价优惠（具体政策请咨询车站）。</p>
+                    </li>
+                    <li>
+                        <strong>行李规定</strong>
+                        <p>旅客随身携带物品总重量不得超过20公斤（儿童10公斤），每件物品体积不得超过20×40×55厘米。超过规定体积或重量的行李，请办理托运手续。</p>
+                    </li>
+                    <li>
+                        <strong>退改签政策</strong>
+                        <p>未乘车前可申请全额退票；开车前2小时内退票收取票面价格5%的手续费；开车后不接受退票。具体规则以车站当班公告为准。</p>
+                    </li>
+                    <li>
+                        <strong>候车与安检</strong>
+                        <p>请提前60分钟到达车站办理检票手续。车站设有严格的安检流程，严禁携带易燃易爆、管制刀具等违禁物品进站乘车。</p>
+                    </li>
+                </ul>
+            </section>
+
+            <aside>
+                <div class="contact-box">
+                    <h3>联系我们</h3>
+                    <div class="contact-item">
+                        <strong>咨询电话</strong><br>
+                        020-12345678
+                    </div>
+                    <div class="contact-item">
+                        <strong>投诉建议</strong><br>
+                        020-87654321
+                    </div>
+                    <div class="contact-item">
+                        <strong>服务时间</strong><br>
+                        06:00 - 20:00
+                    </div>
+                    <div class="contact-item">
+                        <strong>车站地址</strong><br>
+                        广州市花都区新华街道站前路1号
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 20px;">
+                    <div class="section-title">
+                        <h2>购票提醒</h2>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">节假日出行高峰期，建议您提前通过本站或官方APP进行购票，以免耽误行程。</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>常见问题</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何查询花都客运站的具体班次？</div>
+                <div class="faq-answer">您可以在本站首页使用“出发地-目的地-日期”的查询框进行实时查询，或者直接拨打我们的24小时客服热线咨询。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">网上购票后如何取票？</div>
+                <div class="faq-answer">网上购票成功后，您可以选择到车站的自助取票机凭身份证件打印纸质车票，或在乘车当日直接使用身份证件原件在检票口检票上车。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">车站是否提供行李寄存服务？</div>
+                <div class="faq-answer">花都长途客运站一楼大厅设有行李寄存处，提供24小时安全寄存服务，收费标准请咨询现场工作人员。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>花都长途客运站</h4>
+                    <p style="font-size: 14px; color: #bdc3c7; line-height: 1.8;">
+                        致力于为旅客提供安全、快捷、舒适的客运服务。连接花都与珠三角各大城市，是您出行的首选。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">时刻表查询</a></li>
+                        <li><a href="#">汽车票预订</a></li>
+                        <li><a href="#">失物招领</a></li>
+                        <li><a href="#">线路大全</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">车站简介</a></li>
+                        <li><a href="#">管理团队</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 14px; color: #bdc3c7;">
+                        扫码关注微信公众号<br>获取最新班次动态
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 花都长途客运站 版权所有 | 广州交通集团下属单位</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
