@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="体育生互操分享平台，提供各类高校体育生健身、训练及生活互动内容，涵盖健身房动态、体育生日常分享及体育文化探讨。">
+    <meta name="keywords" content="体育生互操,体育生健身,高校体育生活,体育生分享,健身动态">
+    <title>体育生互操-高校体育生健身动态与生活分享平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            border-radius: 50px;
+            padding: 0 24px;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .category-list li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .category-link {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .category-link:hover, .category-link.active {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+        }
+
+        .category-link .count {
+            background: #e2e8f0;
+            color: var(--text-secondary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Content Area */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #cbd5e1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--spacing-sm);
+            margin-top: auto;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .interaction {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .interaction span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Banner Ad Placeholder */
+        .banner-ad {
+            grid-column: 1 / -1;
+            background-color: #e2e8f0;
+            height: 120px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-lg);
+            border: 2px dashed #cbd5e1;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 20px;
+            margin-top: var(--spacing-lg);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-main);
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 60px 20px 20px;
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <span>体育生互操</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">校园动态</a></li>
+                    <li><a href="#">健身分享</a></li>
+                    <li><a href="#">训练交流</a></li>
+                    <li><a href="#">周边故事</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">发布动态</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>记录汗水与青春</h1>
+        <p>专注高校体育生群体，分享真实的校园生活、健身日常与团队互动瞬间。</p>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索训练计划、校园故事或互动话题...">
+            <button class="btn btn-primary">搜索</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <aside>
+            <ul class="category-list">
+                <li><a href="#" class="category-link active"><span>全部动态</span><span class="count">128</span></a></li>
+                <li><a href="#" class="category-link"><span>健身房日常</span><span class="count">45</span></a></li>
+                <li><a href="#" class="category-link"><span>田径场</span><span class="count">32</span></a></li>
+                <li><a href="#" class="category-link"><span>篮球场</span><span class="count">28</span></a></li>
+                <li><a href="#" class="category-link"><span>宿舍生活</span><span class="count">15</span></a></li>
+                <li><a href="#" class="category-link"><span>户外拓展</span><span class="count">8</span></a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="content-header">
+                <h2 class="section-title">热门动态</h2>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    <span>排序:</span>
+                    <a href="#" style="color: var(--primary-color); margin-left: 5px;">最新</a>
+                    <a href="#" style="margin-left: 10px;">最热</a>
+                </div>
+            </div>
+
+            <div class="grid-layout">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">健身日常</span>
+                        <img src="https://picsum.photos/seed/sport1/400/300" alt="健身房互动">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2小时前</span>
+                            <span>•</span>
+                            <span>篮球社</span>
+                        </div>
+                        <h3 class="card-title">深夜健身房：腿部训练后的拉伸互动时光</h3>
+                        <p class="card-desc">训练完腿酸得不行，队友互相帮忙按摩放松，这才是体育生的真实生活写照。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u1/50/50" alt="Avatar" class="author-avatar">
+                                <span>阿杰</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 128</span>
+                                <span>💬 42</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">田径场</span>
+                        <img src="https://picsum.photos/seed/sport2/400/300" alt="田径训练">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>5小时前</span>
+                            <span>•</span>
+                            <span>校田径队</span>
+                        </div>
+                        <h3 class="card-title">清晨五点：备战校运会前的最后一次互操</h3>
+                        <p class="card-desc">为了即将到来的比赛，大家都在拼尽全力。互相纠正动作，互相打气。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u2/50/50" alt="Avatar" class="author-avatar">
+                                <span>队长老李</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 256</span>
+                                <span>💬 89</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">宿舍生活</span>
+                        <img src="https://picsum.photos/seed/sport3/400/300" alt="宿舍互动">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>昨天</span>
+                            <span>•</span>
+                            <span>体育系</span>
+                        </div>
+                        <h3 class="card-title">宿舍夜话：聊聊体育生的那些“互操”趣事</h3>
+                        <p class="card-desc">大家聚在一起分享训练中的趣事，虽然有时候很累，但兄弟情谊最珍贵。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u3/50/50" alt="Avatar" class="author-avatar">
+                                <span>小胖</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 102</span>
+                                <span>💬 33</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">户外拓展</span>
+                        <img src="https://picsum.photos/seed/sport4/400/300" alt="户外拓展">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2天前</span>
+                            <span>•</span>
+                            <span>拓展团建</span>
+                        </div>
+                        <h3 class="card-title">野外拉练：团队协作中的默契瞬间</h3>
+                        <p class="card-desc">在野外负重前行，大家互相搀扶，这种并肩作战的感觉太棒了。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u4/50/50" alt="Avatar" class="author-avatar">
+                                <span>野狼</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 189</span>
+                                <span>💬 56</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">健身房日常</span>
+                        <img src="https://picsum.photos/seed/sport5/400/300" alt="力量训练">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2天前</span>
+                            <span>•</span>
+                            <span>力量组</span>
+                        </div>
+                        <h3 class="card-title">卧推突破：记录一次完美的重量突破</h3>
+                        <p class="card-desc">在兄弟们的保护下，成功突破了瓶颈，感谢我的训练搭子。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u5/50/50" alt="Avatar" class="author-avatar">
+                                <span>大力</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 342</span>
+                                <span>💬 110</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="tag">篮球场</span>
+                        <img src="https://picsum.photos/seed/sport6/400/300" alt="篮球赛">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>3天前</span>
+                            <span>•</span>
+                            <span>校队</span>
+                        </div>
+                        <h3 class="card-title">赛后更衣室：属于男人的赛后放松时间</h3>
+                        <p class="card-desc">赢球后的庆祝，少不了更衣室里的一些轻松互动，这就是青春。</p>
+                        <div class="card-footer">
+                            <div class="author-info">
+                                <img src="https://picsum.photos/seed/u6/50/50" alt="Avatar" class="author-avatar">
+                                <span>控球后卫</span>
+                            </div>
+                            <div class="interaction">
+                                <span>👍 567</span>
+                                <span>💬 201</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="banner-ad">
+                    广告位：合作赞助 / 健身器材推广
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <h3>真实记录</h3>
+                <p>专注于高校体育生群体的真实生活与训练分享，拒绝虚假摆拍。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🤝</div>
+                <h3>互助成长</h3>
+                <p>提供训练技巧交流、动作纠正指导，帮助彼此在体育道路上走得更远。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <h3>社区互动</h3>
+                <p>建立紧密的体育生社交网络，分享喜怒哀乐，结交志同道合的朋友。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>体育生互操</h2>
+                <p>致力于打造最纯粹的高校体育生活分享平台，记录汗水与青春，见证每一次突破。</p>
+            </div>
+            <div class="footer-links">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>分类浏览</h4>
+                <ul>
+                    <li><a href="#">健身房</a></li>
+                    <li><a href="#">田径</a></li>
+                    <li><a href="#">球类运动</a></li>
+                    <li><a href="#">户外</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>邮箱: contact@sports.com</li>
+                    <li>电话: 400-123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 体育生互操平台 版权所有 | 仅供18+用户浏览</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
