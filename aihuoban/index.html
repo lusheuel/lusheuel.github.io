@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI伙伴让创作更简单-智能创作工具集与使用指南</title>
+    <meta name="description" content="AI伙伴让创作更简单，提供全方位的AI辅助写作、绘图、编程及文案生成工具指南。探索最新的人工智能创作平台，解决创作瓶颈，提升效率。">
+    <meta name="keywords" content="AI伙伴让创作更简单, AI写作, AI绘图, 智能创作工具, AI文案生成">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #ec4899;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #eef2ff 0%, #fff1f2 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(120deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #e0e7ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Tools Showcase */
+        .tools-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-image {
+            height: 200px;
+            background-color: #f1f5f9;
+            position: relative;
+        }
+        
+        .tool-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tool-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.9);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .tool-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .tool-content p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tool-link {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 80px 0;
+        }
+
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .guide-sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 100px;
+        }
+
+        .guide-sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+        }
+
+        .guide-list a {
+            display: block;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .guide-list a:hover, .guide-list a.active {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .guide-content article {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .guide-content h4 {
+            margin: 25px 0 10px;
+            color: var(--text-main);
+        }
+
+        .guide-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .guide-content li {
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .step-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-sub);
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-wrapper {
+                height: auto;
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-sidebar {
+                position: static;
+                margin-bottom: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>✦</span> AI伙伴
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="active">核心功能</a></li>
+                    <li><a href="#tools">精选工具</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#tools" class="cta-btn">开始创作</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>AI伙伴让创作更简单<br><span class="highlight">释放无限灵感</span></h1>
+                <p>无论您是作家、设计师还是开发者，我们提供最前沿的人工智能辅助工具，帮助您打破创作瓶颈，提升工作效率，实现从构思到成品的快速落地。</p>
+                <div class="hero-tags">
+                    <span class="tag">AI写作助手</span>
+                    <span class="tag">AI图像生成</span>
+                    <span class="tag">代码辅助</span>
+                    <span class="tag">智能排版</span>
+                </div>
+                <a href="#tools" class="cta-btn" style="padding: 12px 30px; font-size: 1rem;">探索 AI 工具库</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="container">
+            <div class="section-title">
+                <h2>为什么选择 AI 伙伴？</h2>
+                <p>传统创作流程繁琐耗时，AI 技术为您重塑工作流</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="icon-box">✍️</div>
+                    <h3>智能文案生成</h3>
+                    <p>输入关键词或主题，AI 即可自动生成高质量的文章大纲、营销文案、社交媒体帖子，大幅减少构思时间。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>视觉内容创作</h3>
+                    <p>无需专业绘图技能，通过自然语言描述即可生成精美插图、Logo 设计或产品渲染图，满足多样化视觉需求。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="icon-box">🧠</div>
+                    <h3>深度内容优化</h3>
+                    <p>不仅生成新内容，更能对已有文本进行润色、扩写、改写和风格转换，确保内容的专业度与可读性。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="icon-box">⚡</div>
+                    <h3>极速响应交互</h3>
+                    <p>基于最新的大语言模型，秒级响应您的指令，支持多轮对话，像真人伙伴一样进行头脑风暴。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Tools Showcase -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>热门创作工具推荐</h2>
+                    <p>精选市面上最实用的 AI 平台，助您高效产出</p>
+                </div>
+                <div class="tools-grid">
+                    <!-- Tool 1 -->
+                    <div class="tool-card">
+                        <div class="tool-image">
+                            <span class="tool-badge">写作首选</span>
+                            <img src="https://picsum.photos/seed/aiwrite/600/400" alt="AI写作平台界面示例">
+                        </div>
+                        <div class="tool-content">
+                            <h3>智笔文心</h3>
+                            <p>专注于长文写作与润色的 AI 助手，支持 Markdown 编辑，适合博客、小说及专业文档创作。</p>
+                            <a href="#" class="tool-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Tool 2 -->
+                    <div class="tool-card">
+                        <div class="tool-image">
+                            <span class="tool-badge">图像生成</span>
+                            <img src="https://picsum.photos/seed/aipaint/600/400" alt="AI绘画工具界面示例">
+                        </div>
+                        <div class="tool-content">
+                            <h3>灵感绘梦</h3>
+                            <p>将文字转化为艺术画作，支持多种艺术风格，提供强大的图生图和局部重绘功能。</p>
+                            <a href="#" class="tool-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Tool 3 -->
+                    <div class="tool-card">
+                        <div class="tool-image">
+                            <span class="tool-badge">效率工具</span>
+                            <img src="https://picsum.photos/seed/aicode/600/400" alt="AI编程助手界面示例">
+                        </div>
+                        <div class="tool-content">
+                            <h3>代码伙伴</h3>
+                            <p>辅助程序员编写代码、调试错误和生成文档，支持 Python, JavaScript 等主流语言。</p>
+                            <a href="#" class="tool-link">查看详情 &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>新手创作指南</h2>
+                    <p>从零开始，掌握 AI 辅助创作的核心技巧</p>
+                </div>
+                <div class="guide-container">
+                    <aside class="guide-sidebar">
+                        <h3>快速导航</h3>
+                        <ul class="guide-list">
+                            <li><a href="#guide-1" class="active">01. 准备工作</a></li>
+                            <li><a href="#guide-2">02. 提示词工程</a></li>
+                            <li><a href="#guide-3">03. 内容审核</a></li>
+                            <li><a href="#guide-4">04. 效率技巧</a></li>
+                        </ul>
+                    </aside>
+                    <div class="guide-content">
+                        <article id="guide-1">
+                            <h2>01. 选择合适的 AI 工具</h2>
+                            <p>在开始之前，首先要明确您的创作需求。不同的 AI 工具在特定领域表现各异：</p>
+                            <div class="step-box">
+                                <p><strong>文案类：</strong> 适合处理营销邮件、社交媒体文案或基础问答，注重语气的自然度。</p>
+                            </div>
+                            <div class="step-box">
+                                <p><strong>创意类：</strong> 适合头脑风暴、构思故事情节或生成设计灵感，注重创意的广度。</p>
+                            </div>
+                            <div class="step-box">
+                                <p><strong>技术类：</strong> 适合编写代码、翻译文档或数据分析，注重准确性与逻辑性。</p>
+                            </div>
+                        </article>
+
+                        <article id="guide-2">
+                            <h2>02. 掌握提示词工程</h2>
+                            <p>AI 的输出质量很大程度上取决于您输入的指令（提示词）。一个好的提示词应包含背景、任务和限制条件。</p>
+                            <h4>示例结构：</h4>
+                            <ul>
+                                <li><strong>角色设定：</strong> “你是一位拥有10年经验的营销专家...”</li>
+                                <li><strong>任务描述：</strong> “请为一款新出的咖啡机撰写一篇吸引年轻人的推广文案...”</li>
+                                <li><strong>风格要求：</strong> “语言风格要幽默、轻松，使用网络流行语...”</li>
+                                <li><strong>输出格式：</strong> “输出500字左右，包含三个吸引人的小标题。”</li>
+                            </ul>
+                        </article>
+
+                        <article id="guide-3">
+                            <h2>03. 内容审核与人工润色</h2>
+                            <p>AI 生成的初稿虽然高效，但往往存在事实错误、逻辑跳跃或用词重复的问题。因此，<strong>人工审核</strong>是必不可少的环节。</p>
+                            <p>建议采取“三步走”策略：先检查事实准确性，再调整逻辑结构，最后进行语言润色，使其更符合您的品牌调性。</p>
+                        </article>
+                        
+                        <article id="guide-4">
+                            <h2>04. 提升效率的实用技巧</h2>
+                            <p>利用快捷指令和模板可以进一步提高效率。例如，建立一套固定的提示词模板，可以快速生成不同主题的同类内容。</p>
+                            <p>此外，善用“追问”功能。如果第一次生成结果不满意，不要重新生成，而是直接告诉 AI：“这段内容太长了，请精简为200字。”</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container faq-container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        AI 伙伴生成的版权归谁所有？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>通常情况下，AI 生成的内容在未经人类深度修改和原创性加工前，其版权归属较为复杂。建议在使用 AI 生成内容时，保留原始提示词记录，并对生成结果进行大量的人工编辑和整合，以确保内容的独特性和版权安全性。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        使用这些工具需要具备编程基础吗？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>不需要。我们推荐的 AI 伙伴工具大多采用自然语言交互界面，用户只需用日常语言描述需求即可。对于编程类工具，虽然有一定门槛，但也提供了可视化面板和代码解释功能，适合初学者学习。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        免费版和付费版有什么区别？
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>免费版通常有每日生成次数限制、输出长度限制以及使用较旧的模型版本。付费版则提供无限次生成、更快的响应速度、更强大的模型权限（如 GPT-4 级别）以及专属的客户支持服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>AI伙伴</h4>
+                    <p>致力于通过人工智能技术降低创作门槛，让每个人都能成为创作者。我们关注技术前沿，更关注如何赋能创作者。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>工具分类</h5>
+                    <ul>
+                        <li><a href="#">AI 写作</a></li>
+                        <li><a href="#">AI 绘画</a></li>
+                        <li><a href="#">AI 视频生成</a></li>
+                        <li><a href="#">AI 音频处理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>资源指南</h5>
+                    <ul>
+                        <li><a href="#">提示词库</a></li>
+                        <li><a href="#">案例展示</a></li>
+                        <li><a href="#">行业报告</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关于我们</h5>
+                    <ul>
+                        <li><a href="#">联系合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AI伙伴. All Rights Reserved. 仅供技术展示与信息参考，非实际商业平台。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                                      </html>
