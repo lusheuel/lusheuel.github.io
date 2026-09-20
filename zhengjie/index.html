@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>政界-国家治理体系与政治人物深度解析</title>
+    <meta name="description" content="本站专注于政界动态与政治人物研究，提供权威的政治新闻、国家治理体系解析、政策解读及全球政治人物资料，致力于打造客观、理性的政治信息平台。">
+    <meta name="keywords" content="政界,政治新闻,国家治理,政策解读,政治人物,政治研究">
+    <style>
+        :root {
+            --primary-color: #1a3b5c; /* 深蓝，代表稳重与官方 */
+            --secondary-color: #c8102e; /* 中国红，点缀 */
+            --accent-color: #f0f2f5; /* 浅灰背景 */
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 59, 92, 0.3), transparent);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Article Feed */
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .article-card {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-card:last-child {
+            border-bottom: none;
+        }
+
+        .article-img {
+            width: 240px;
+            height: 160px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-title:hover {
+            color: var(--primary-color);
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--accent-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            font-size: 12px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .rank-num.top-1 {
+            background-color: #e53e3e;
+        }
+
+        .rank-num.top-2 {
+            background-color: #dd6b20;
+        }
+
+        .rank-num.top-3 {
+            background-color: #d69e2e;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .policy-box {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .policy-item {
+            margin-bottom: 15px;
+        }
+
+        .policy-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-date {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .policy-link {
+            font-size: 15px;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .policy-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Topics Section */
+        .topics-section {
+            background-color: var(--white);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .topic-card {
+            position: relative;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .topic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .topic-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+        }
+
+        .topic-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .topic-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Governance Info (High Density) */
+        .governance-info {
+            background-color: var(--white);
+            padding: 40px 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table th, .info-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-table th {
+            background-color: var(--accent-color);
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .info-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: #a0aec0;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-tags {
+                justify-content: center;
+            }
+            .topics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                display: none; /* 简化移动端，实际项目需做汉堡菜单 */
+            }
+            .article-card {
+                flex-direction: column;
+            }
+            .article-img {
+                width: 100%;
+                height: 200px;
+            }
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">政界<span>观察</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">时政要闻</a></li>
+                    <li><a href="#">政策解读</a></li>
+                    <li><a href="#">国际关系</a></li>
+                    <li><a href="#">人物专访</a></li>
+                    <li><a href="#">智库观点</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>洞察时代脉搏，解读国家治理</h1>
+                    <p>聚焦全球政界动态，深入剖析重大政策决策，为公众提供客观、理性的政治信息与深度分析。</p>
+                    <div class="hero-tags">
+                        <span class="tag">国家治理现代化</span>
+                        <span class="tag">全球政治格局</span>
+                        <span class="tag">法治建设</span>
+                        <span class="tag">经济发展</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/politics_hero/600/400" alt="政界高层会议">
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-layout">
+            <!-- Left Column: News Feed -->
+            <section class="news-feed">
+                <div class="section-title">
+                    <span>最新时政动态</span>
+                    <a href="#">查看更多 &gt;</a>
+                </div>
+
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://picsum.photos/seed/news1/400/300" alt="经济会议">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-24 · 时政要闻</div>
+                        <h2 class="article-title"><a href="#">全国经济工作会议在京举行：部署明年经济工作重点任务</a></h2>
+                        <p class="article-excerpt">会议强调，要坚持以高质量发展为主题，完整、准确、全面贯彻新发展理念，加快构建新发展格局。会议对2024年经济工作提出了总体要求和具体部署，明确了稳中求进、以进促稳、先立后破的工作总基调。</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://picsum.photos/seed/news2/400/300" alt="法治建设">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-23 · 法治建设</div>
+                        <h2 class="article-title"><a href="#">深化法治政府建设：提升行政执法规范化水平</a></h2>
+                        <p class="article-excerpt">国务院发布最新指导意见，要求严格规范公正文明执法，加强行政执法监督体系建设，切实解决行政执法领域存在的突出问题，让人民群众在每一个执法决定中感受到公平正义。</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://picsum.photos/seed/news3/400/300" alt="国际合作">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-22 · 国际关系</div>
+                        <h2 class="article-title"><a href="#">多边主义合作峰会召开：共商全球治理新路径</a></h2>
+                        <p class="article-excerpt">来自多个国家的政要及国际组织代表齐聚一堂，就气候变化、全球公共卫生、经济复苏等全球性挑战展开深入讨论，呼吁加强多边合作，维护以联合国为核心的国际体系。</p>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://picsum.photos/seed/news4/400/300" alt="乡村振兴">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">2023-10-21 · 区域发展</div>
+                        <h2 class="article-title"><a href="#">乡村振兴战略实施三年评估报告发布</a></h2>
+                        <p class="article-excerpt">报告显示，三年间农村基础设施显著改善，农民收入持续增长，乡村治理体系不断完善。下一步工作重点将聚焦于缩小城乡差距，促进农业高质高效、乡村宜居宜业。</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门人物</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num top-1">1</span>
+                            <a href="#" class="rank-title">关于推进能源革命加强能源领域法律法规建设的建议</a>
+                        </li>
+                        <li>
+                            <span class="rank-num top-2">2</span>
+                            <a href="#" class="rank-title">深化科技体制改革激发创新主体活力</a>
+                        </li>
+                        <li>
+                            <span class="rank-num top-3">3</span>
+                            <a href="#" class="rank-title">优化营商环境激发市场活力</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <a href="#" class="rank-title">完善现代职业教育体系建设</a>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <a href="#" class="rank-title">加强基层治理体系和治理能力现代化</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="policy-box">
+                    <h3 class="widget-title" style="margin-bottom: 15px; color: var(--primary-color);">最新政策发布</h3>
+                    <div class="policy-item">
+                        <div class="policy-date">2023-10-24</div>
+                        <a href="#" class="policy-link">国务院办公厅关于印发《“十四五”国家老龄事业发展和养老服务体系规划》的通知</a>
+                    </div>
+                    <div class="policy-item">
+                        <div class="policy-date">2023-10-22</div>
+                        <a href="#" class="policy-link">中共中央 国务院关于促进民营经济发展壮大的意见</a>
+                    </div>
+                    <div class="policy-item">
+                        <div class="policy-date">2023-10-20</div>
+                        <a href="#" class="policy-link">财政部：加大财政政策实施力度，支持经济恢复发展</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">订阅周刊</h3>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">获取每周精选的政界深度分析与政策解读。</p>
+                    <input type="email" placeholder="请输入您的邮箱" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    <button style="width: 100%; padding: 10px; background-color: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">订阅</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Topics Section -->
+        <section class="topics-section">
+            <div class="container">
+                <div class="section-title">
+                    <span>专题聚焦</span>
+                </div>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <img src="https://picsum.photos/seed/topic1/400/300" alt="生态文明">
+                        <div class="topic-overlay">
+                            <div class="topic-title">美丽中国建设</div>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <img src="https://picsum.photos/seed/topic2/400/300" alt="一带一路">
+                        <div class="topic-overlay">
+                            <div class="topic-title">共建“一带一路”</div>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <img src="https://picsum.photos/seed/topic3/400/300" alt="科技创新">
+                        <div class="topic-overlay">
+                            <div class="topic-title">科技自立自强</div>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <img src="https://picsum.photos/seed/topic4/400/300" alt="国家安全">
+                        <div class="topic-overlay">
+                            <div class="topic-title">总体国家安全观</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance Info Table -->
+        <section class="governance-info">
+            <div class="container">
+                <div class="section-title">
+                    <span>国家治理体系</span>
+                    <a href="#">更多制度参考 &gt;</a>
+                </div>
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">领域</th>
+                            <th width="30%">核心制度</th>
+                            <th width="50%">实施目标与意义</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>政治制度</td>
+                            <td>人民代表大会制度</td>
+                            <td>坚持党的领导、人民当家作主、依法治国有机统一，保证人民依法实行民主选举、民主协商、民主决策、民主管理、民主监督。</td>
+                        </tr>
+                        <tr>
+                            <td>经济制度</td>
+                            <td>社会主义基本经济制度</td>
+                            <td>公有制为主体、多种所有制经济共同发展，按劳分配为主体、多种分配方式并存，社会主义市场经济体制。</td>
+                        </tr>
+                        <tr>
+                            <td>法治建设</td>
+                            <td>全面依法治国</td>
+                            <td>建设中国特色社会主义法治体系，建设社会主义法治国家，坚持依法治国、依法执政、依法行政共同推进。</td>
+                        </tr>
+                        <tr>
+                            <td>社会治理</td>
+                            <td>共建共治共享的社会治理制度</td>
+                            <td>完善党委领导、政府负责、民主协商、社会协同、公众参与、法治保障、科技支撑的社会治理体系。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">政界观察致力于提供客观、权威、深度的政治信息解读。我们关注国家治理体系的完善与发展，致力于成为公众理解时政的重要窗口。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">时政要闻</a></li>
+                        <li><a href="#">政策解读</a></li>
+                        <li><a href="#">国际观察</a></li>
+                        <li><a href="#">人物专访</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="#">中国政府网</a></li>
+                        <li><a href="#">新华网</a></li>
+                        <li><a href="#">人民日报</a></li>
+                        <li><a href="#">光明日报</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：contact@zhengjie.cn</li>
+                        <li>地址：北京市朝阳区政治中心区</li>
+                        <li>电话：010-12345678</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 政界观察. All Rights Reserved. 仅供演示使用，内容不代表本站立场。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
