@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="宜兰旅游攻略网提供最新的宜兰景点推荐、美食指南、住宿信息及交通路线规划。深度解析礁溪温泉、冬山花海、头城老街等热门目的地，助您打造完美的宜兰自由行。">
+    <meta name="keywords" content="宜兰旅游攻略,宜兰景点,宜兰美食,礁溪温泉,宜兰住宿,台湾旅游">
+    <title>宜兰旅游攻略-热门景点、美食与住宿指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00897b;
+            --secondary-color: #4db6ac;
+            --accent-color: #ffb74d;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/seed/ilan_landscape/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            border: none;
+            flex: 1;
+            padding: 10px 20px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #ffca28;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            background-color: var(--white);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .info-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Attractions Grid */
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: rgba(0, 137, 123, 0.1);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Food Section */
+        .food-section {
+            background-color: var(--white);
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .food-card {
+            text-align: center;
+        }
+
+        .food-img-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+        }
+
+        .food-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .food-location {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Itinerary Section */
+        .itinerary-section {
+            background-color: #e0f2f1;
+        }
+
+        .itinerary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .day-plan {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .day-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .day-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .activity-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .activity-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474f;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>宜兰旅游攻略</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#attractions" class="active">热门景点</a></li>
+                <li><a href="#food">宜兰美食</a></li>
+                <li><a href="#itinerary">行程规划</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <a href="#itinerary" class="cta-btn">开始规划</a>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索宜兰的山水秘境</h1>
+            <p>从静谧的温泉小镇到热闹的冬山花海，这里有您需要的所有旅行灵感与实用指南。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索景点、美食或攻略...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <div class="quick-info">
+        <div class="container info-grid">
+            <div class="info-item">
+                <h3>最佳季节</h3>
+                <p>10月-12月 (秋高气爽)</p>
+            </div>
+            <div class="info-item">
+                <h3>建议天数</h3>
+                <p>3-5天深度游</p>
+            </div>
+            <div class="info-item">
+                <h3>交通方式</h3>
+                <p>高铁+火车/包车</p>
+            </div>
+            <div class="info-item">
+                <h3>预算参考</h3>
+                <p>人均约 5000元/天</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="container">
+        <div class="section-header">
+            <h2>必游热门景点</h2>
+            <p>精选宜兰最具代表性的自然与人文风光</p>
+        </div>
+        <div class="attractions-grid">
+            <article class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/ilan_1/400/300" alt="礁溪温泉">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">自然风光</span>
+                    <h3 class="card-title">礁溪温泉</h3>
+                    <p class="card-desc">宜兰最知名的温泉胜地，拥有“头城汤围沟温泉公园”，适合全家出游，享受露天泡汤的惬意。</p>
+                    <div class="card-footer">
+                        <span>距市区 5 公里</span>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/ilan_2/400/300" alt="头城老街">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">人文古迹</span>
+                    <h3 class="card-title">头城老街</h3>
+                    <p class="card-desc">宜兰最早开发的街区，保留了许多百年以上的闽南式古厝，是感受当地历史文化的绝佳去处。</p>
+                    <div class="card-footer">
+                        <span>距市区 10 公里</span>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/ilan_3/400/300" alt="武荖坑风景区">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">户外探险</span>
+                    <h3 class="card-title">武荖坑风景区</h3>
+                    <p class="card-desc">以清澈溪流和瀑布闻名，是溯溪、露营和玩水的好地方，夏季避暑首选。</p>
+                    <div class="card-footer">
+                        <span>距市区 25 公里</span>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/ilan_4/400/300" alt="童玩节">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">亲子乐园</span>
+                    <h3 class="card-title">冬山绿博园区</h3>
+                    <p class="card-desc">一年一度的宜兰国际童玩艺术节举办地，园区内绿树成荫，设施丰富，适合亲子游玩。</p>
+                    <div class="card-footer">
+                        <span>距市区 35 公里</span>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Food Section -->
+    <section id="food" class="food-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>宜兰地道美食</h2>
+                <p>舌尖上的宜兰，不可错过的在地风味</p>
+            </div>
+            <div class="food-grid">
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food1/200/200" alt="三星青葱">
+                    </div>
+                    <h3 class="food-title">三星青葱</h3>
+                    <p class="food-location">三星乡特产</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food2/200/200" alt="鸭赏">
+                    </div>
+                    <h3 class="food-title">宜兰鸭赏</h3>
+                    <p class="food-location">传统烟熏风味</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food3/200/200" alt="牛轧糖">
+                    </div>
+                    <h3 class="food-title">牛轧糖</h3>
+                    <p class="food-location">伴手礼首选</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food4/200/200" alt="蜜饯">
+                    </div>
+                    <h3 class="food-title">蜜饯</h3>
+                    <p class="food-location">风味独特</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food5/200/200" alt="豆腐乳">
+                    </div>
+                    <h3 class="food-title">金桔豆腐乳</h3>
+                    <p class="food-location">下饭神器</p>
+                </div>
+                <div class="food-card">
+                    <div class="food-img-wrapper">
+                        <img src="https://picsum.photos/seed/food6/200/200" alt="汤圆">
+                    </div>
+                    <h3 class="food-title">宜兰汤圆</h3>
+                    <p class="food-location">传统甜点</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="itinerary-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>经典三日游路线</h2>
+                <p>轻松规划您的宜兰之旅，不走回头路</p>
+            </div>
+            <div class="itinerary-container">
+                <div class="day-plan">
+                    <div class="day-header">
+                        <div class="day-number">1</div>
+                        <div class="day-title">温泉与老街</div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>抵达宜兰，入住礁溪温泉饭店</li>
+                        <li>下午漫步【头城老街】，品尝阿婆芋圆</li>
+                        <li>傍晚体验【汤围沟温泉公园】</li>
+                        <li>晚餐享用当地海鲜料理</li>
+                    </ul>
+                </div>
+
+                <div class="day-plan">
+                    <div class="day-header">
+                        <div class="day-number">2</div>
+                        <div class="day-title">山海风光</div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>前往【苏澳冷泉】戏水</li>
+                        <li>参观【南方澳渔港】午餐吃海鲜</li>
+                        <li>下午前往【罗东林业文化园区】</li>
+                        <li>夜晚在罗东夜市大快朵颐</li>
+                    </ul>
+                </div>
+
+                <div class="day-plan">
+                    <div class="day-header">
+                        <div class="day-number">3</div>
+                        <div class="day-title">人文与田园</div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>前往【梅花湖】骑行</li>
+                        <li>参观【深沟蔬菜文化馆】</li>
+                        <li>选购【宜兰手信】伴手礼</li>
+                        <li>结束行程，返程</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>宜兰旅游常见问题</h2>
+                <p>为您解答旅行中的疑惑</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">宜兰适合自驾游吗？</div>
+                    <div class="faq-answer">非常适合。宜兰县内风景优美，山路较多但路况良好，自驾可以更灵活地前往小众景点和温泉区。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">去宜兰需要提前预订住宿吗？</div>
+                    <div class="faq-answer">建议提前预订。尤其是冬季（泡汤旺季）和春节、寒暑假期间，礁溪和罗东的优质温泉旅馆非常抢手。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">宜兰有什么特产适合带回家？</div>
+                    <div class="faq-answer">三星青葱、牛轧糖、蜜饯、鸭赏以及各种口味的萝卜糕都是热门的伴手礼。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">交通主要靠火车还是公车？</div>
+                    <div class="faq-answer">宜兰铁路网发达，从台北搭乘火车非常方便。县内公车班次较多，但景点间移动建议结合包车或自驾。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="font-size: 0.9rem; line-height: 1.8;">
+                    宜兰旅游攻略致力于为游客提供最新、最全的旅游资讯。从景点介绍到美食推荐，助您打造完美的宜兰之旅。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#attractions">热门景点</a></li>
+                    <li><a href="#food">宜兰美食</a></li>
+                    <li><a href="#itinerary">行程规划</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>交通指南</h4>
+                <ul>
+                    <li>高铁至宜兰站</li>
+                    <li>台铁至苏澳新站</li>
+                    <li>国道5号南下</li>
+                    <li>包车服务咨询</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>邮箱: travel@ilan-guide.com</li>
+                    <li>电话: 02-1234-5678</li>
+                    <li>地址: 宜兰县罗东镇中山路一段</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 宜兰旅游攻略网 版权所有 | 内容仅供参考，请以实际为准</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Accordion Logic
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+
+    // Smooth Scroll for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+                  </html>
