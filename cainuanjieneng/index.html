@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>采暖节能锅炉-高效清洁供暖解决方案与选型指南</title>
+    <meta name="description" content="专业提供采暖节能锅炉产品资讯、技术参数对比、安装维护指南及最新行业政策解读，助您选择最适合的绿色供暖设备。">
+    <meta name="keywords" content="采暖节能锅炉,燃气锅炉,空气能热泵,集中供暖,锅炉选型">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004c99;
+            --accent-color: #e6f0fa;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .hero-btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* 行业痛点 */
+        .pain-points {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* 技术对比 */
+        .comparison {
+            padding: 80px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .tag-green { background: #e6f9ec; color: #009944; }
+        .tag-blue { background: #e6f0fa; color: #0066cc; }
+        .tag-orange { background: #fff5e6; color: #ff9900; }
+
+        /* 选型指南 */
+        .guide {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .guide-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .guide-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: -3px;
+        }
+
+        .guide-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* 常见问题 */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+                </svg>
+                节能供暖网
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#comparison">技术对比</a>
+                <a href="#guide">选型指南</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#contact" class="cta-btn">免费咨询方案</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>采暖节能锅炉<br>绿色供暖解决方案</h1>
+                <p>告别高能耗，拥抱清洁供暖。我们为您提供从燃气锅炉到空气源热泵的全套节能方案，降低运行成本，提升供暖舒适度。</p>
+                <div class="hero-buttons">
+                    <a href="#comparison" class="cta-btn">查看技术对比</a>
+                    <a href="#guide" class="hero-btn-outline">了解选型流程</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain Points Section -->
+        <section class="pain-points">
+            <div class="container">
+                <div class="section-title">
+                    <h2>传统供暖的痛点</h2>
+                    <p>为什么越来越多的家庭和单位开始关注采暖节能锅炉？</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-icon">💸</div>
+                        <h3>运行费用高</h3>
+                        <p>传统燃煤锅炉和部分老式燃气设备热效率低，长期运行成本居高不下，冬季取暖成为一笔沉重开支。</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">🌫️</div>
+                        <h3>环境污染大</h3>
+                        <p>排放物超标不仅影响空气质量，还面临日益严格的环保政策检查，老旧设备面临淘汰风险。</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon">🛠️</div>
+                        <h3>维护管理难</h3>
+                        <p>设备故障率高，冬季故障停运严重影响供暖效果，缺乏专业的维护保养知识导致寿命缩短。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <div class="section-title">
+                    <h2>主流采暖节能锅炉技术对比</h2>
+                    <p>为您解析市场上主流的节能供暖设备，助您做出明智选择。</p>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>技术类型</th>
+                            <th>热效率</th>
+                            <th>适用场景</th>
+                            <th>环保特性</th>
+                            <th>推荐指数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>空气源热泵</strong></td>
+                            <td>300% - 500%</td>
+                            <td>北方采暖、商业建筑、家庭采暖</td>
+                            <td>零排放，极度环保</td>
+                            <td><span class="tag tag-green">★★★★★</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>冷凝式燃气锅炉</strong></td>
+                            <td>95% - 108%</td>
+                            <td>集中供暖、工厂热源、别墅采暖</td>
+                            <td>低氮排放，符合新国标</td>
+                            <td><span class="tag tag-blue">★★★★☆</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>生物质颗粒锅炉</strong></td>
+                            <td>80% - 90%</td>
+                            <td>农村地区、林区、分散供暖</td>
+                            <td>碳循环，需配套除尘设备</td>
+                            <td><span class="tag tag-orange">★★★☆☆</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide">
+            <div class="container">
+                <div class="guide-content">
+                    <div class="guide-text">
+                        <h3>采暖节能锅炉选型五大要素</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-gray);">选择合适的采暖节能锅炉不仅能保证供暖效果，更能大幅降低能耗。请关注以下五个关键指标：</p>
+                        <ul class="guide-list">
+                            <li><strong>供暖面积与需求：</strong> 根据房屋保温性能和当地气候条件，计算所需的热负荷。</li>
+                            <li><strong>能源供应条件：</strong> 确认周边是否有天然气、电力或生物质燃料供应，成本差异巨大。</li>
+                            <li><strong>环保政策要求：</strong> 北方地区需严格选择低氮或电采暖设备，避免被环保部门处罚。</li>
+                            <li><strong>设备能效等级：</strong> 优先选择一级能效产品，虽然初期投入稍高，但长期回报率更高。</li>
+                            <li><strong>售后服务体系：</strong> 锅炉属于特种设备，必须选择有本地化安装维修服务能力的品牌。</li>
+                        </ul>
+                    </div>
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/heating/600/400.jpg" alt="现代化节能锅炉设备" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于采暖节能锅炉的常见疑问与专业解答</p>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">空气源热泵在北方寒冷地区效果如何？</button>
+                    <div class="faq-answer">
+                        <p>现代空气源热泵采用了喷气增焓等先进技术，在-25℃甚至更低的环境下仍能保持较高的制热效率。对于极寒地区，建议选择带有电辅热功能的机型或采用水地暖系统以增强保温效果。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">燃气锅炉的运行费用大概是多少？</button>
+                    <div>
+                        <div class="faq-answer">
+                            <p>燃气锅炉的费用取决于天然气单价和热效率。一般来说，北方地区冬季采暖（120㎡住宅）的燃气费用约为3000-6000元人民币，具体取决于房屋保温情况和设定的温度。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">如何判断锅炉是否节能？</button>
+                    <div>
+                        <div class="faq-answer">
+                            <p>判断节能性主要看两个指标：一是锅炉的额定热效率（一级能效通常≥94%），二是实际运行中的温差控制能力。变频锅炉和冷凝锅炉是当前节能的主流选择。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>节能供暖网</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">专注于提供最前沿的采暖节能锅炉资讯、技术方案与选型建议，致力于推广绿色低碳的供暖生活方式。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">产品中心</a></li>
+                        <li><a href="#">安装案例</a></li>
+                        <li><a href="#">能耗分析</a></li>
+                        <li><a href="#">联系厂家</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">售后政策</a></li>
+                        <li><a href="#">保养指南</a></li>
+                        <li><a href="#">故障排查</a></li>
+                        <li><a href="#">在线咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：service@greenheat.com</li>
+                        <li>地址：北京市朝阳区节能科技园</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 采暖节能锅炉解决方案中心 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
