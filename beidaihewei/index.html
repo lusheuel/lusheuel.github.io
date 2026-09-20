@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="北戴河蔚蓝海岸官方首页 - 提供秦皇岛北戴河蔚蓝海岸旅游攻略、度假酒店预订、滨海度假设施介绍及夏季海滨休闲指南。">
+    <meta name="keywords" content="北戴河蔚蓝海岸, 秦皇岛旅游, 海滨度假, 蔚蓝海岸攻略, 鸽子窝公园, 北戴河住宿">
+    <title>北戴河蔚蓝海岸-滨海度假胜地与旅游休闲指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #00a8e8;
+            --accent-color: #ffb347;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #f4f9fc;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: #0052a3;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-light);
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/coast/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+        }
+
+        /* Attractions Section */
+        .attractions {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .attraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Guide Section */
+        .guide {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .guide-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .guide-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .guide-steps {
+            margin-top: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-text h4 {
+            margin-bottom: 5px;
+        }
+
+        .step-text p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .guide-image {
+            position: relative;
+        }
+
+        .guide-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .guide-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .guide-badge .number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .guide-badge .text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f7ff;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-container nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-container nav.active {
+                display: flex;
+            }
+
+            .nav-container nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>蔚蓝</span>海岸
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#attractions">核心景点</a></li>
+                    <li><a href="#stay">住宿体验</a></li>
+                    <li><a href="#guide">游玩攻略</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>邂逅北戴河蔚蓝海岸的夏日诗篇</h1>
+            <p>位于秦皇岛黄金海岸核心地带，集滨海度假、亲子娱乐、高端住宿与生态休闲于一体的综合性旅游目的地。</p>
+            <div class="hero-buttons">
+                <a href="#attractions" class="btn btn-primary">探索景点</a>
+                <a href="#guide" class="btn btn-outline">查看攻略</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🏖️</span>
+                    <h3>黄金海岸线</h3>
+                    <p>拥有长达数公里的细腻沙滩，水质清澈，沙质柔软，是夏季避暑纳凉的理想之选。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏨</span>
+                    <h3高端度假配套</h3>
+                    <p>汇集精品民宿、特色酒店及度假公寓，满足家庭出游与情侣旅行的多样化需求。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎡</span>
+                    <h3亲子娱乐设施</h3>
+                    <p>集水上乐园、沙滩运动、儿童游乐场于一体，为全家带来欢乐的度假时光。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌿</span>
+                    <h3生态自然环境</h3>
+                    <p>依托原生湿地与森林景观，打造天然氧吧，让游客在亲近自然中放松身心。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="attractions">
+        <div class="container">
+            <h2 class="section-title">热门景点推荐</h2>
+            <p class="section-subtitle">探索蔚蓝海岸周边及内部不容错过的精彩地标</p>
+            <div class="attraction-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/pebble/400/300" alt="鸽子窝公园日出" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">自然奇观</span>
+                        <h3>鸽子窝公园</h3>
+                        <p>观赏海上日出的绝佳地点，拥有广阔的红海滩和湿地，是摄影爱好者的天堂。</p>
+                        <a href="#" class="card-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/castles/400/300" alt="阿那亚礼堂" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">人文地标</span>
+                        <h3>阿那亚礼堂</h3>
+                        <p>孤独而纯净的白色建筑，矗立在海滩之上，是北戴河蔚蓝海岸最具代表性的打卡地。</p>
+                        <a href="#" class="card-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/pavilion/400/300" alt="蔚蓝海岸·蔚蓝花田" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">休闲体验</span>
+                        <h3>蔚蓝花田</h3>
+                        <p>四季流转的花海景观，搭配滑梯与游乐设施，是亲子家庭互动的欢乐天地。</p>
+                        <a href="#" class="card-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+                <!-- Card 4 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/seafood/400/300" alt="渔人码头" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">美食地标</span>
+                        <h3>渔人码头</h3>
+                        <p>充满欧式风情的建筑群，汇集海鲜大排档与特色餐厅，尽享地道渔家风味。</p>
+                        <a href="#" class="card-link">查看详情 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section id="guide" class="guide">
+        <div class="container">
+            <div class="guide-content">
+                <div class="guide-text">
+                    <h2>一站式滨海度假指南</h2>
+                    <p>北戴河蔚蓝海岸不仅是看海的地方，更是一种生活方式的体验。无论您是初次造访还是回头客，这份指南将帮助您更好地规划行程。</p>
+                    <p>这里拥有完善的公共服务体系，从海滨浴场的安全设施到高端商业配套，每一个细节都经过精心打磨，确保您的旅途舒适无忧。</p>
+                    
+                    <div class="guide-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <h4>选择出行时间</h4>
+                                <p>6月至9月是最佳季节，气候宜人，适合游泳和沙滩活动。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <h4>预订住宿</h4>
+                                <p>建议提前预订海景房或度假公寓，享受推窗见海的体验。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <h4>体验特色活动</h4>
+                                <p>尝试帆船出海、沙滩排球或参加夜间灯光秀，丰富旅程。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-image">
+                    <img src="https://picsum.photos/seed/beachlife/600/400" alt="北戴河蔚蓝海岸度假生活">
+                    <div class="guide-badge">
+                        <span class="number">4.9</span>
+                        <span class="text">游客满意度</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题解答</h2>
+            <p class="section-subtitle">关于北戴河蔚蓝海岸旅游的疑问与解答</p>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>蔚蓝海岸门票价格是多少？</span>
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>蔚蓝海岸核心区域免费开放，部分特色景点（如阿那亚礼堂周边区域）可能需要预约或特定活动收费。建议出行前查看官方公告。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>适合带孩子去吗？</span>
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>非常适合。蔚蓝海岸拥有专门的儿童游乐区和亲子酒店，沙滩安全系数高，是带孩子亲近自然的理想场所。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>附近有哪些美食推荐？</span>
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>除了海鲜大排档，周边还有多家连锁餐厅和咖啡馆。渔人码头区域汇集了各类海鲜加工店，可以品尝到地道的秦皇岛风味。</p>
+                    </div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>最佳拍照打卡点在哪里？</span>
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>除了标志性的阿那亚礼堂，蔚蓝花田、碧螺塔酒吧公园以及各处沙滩日落都是极佳的摄影取景地。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于蔚蓝海岸</h4>
+                    <p>致力于打造中国顶级的滨海度假目的地，为您提供纯净的海岸线与高品质的度假体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#attractions">景点介绍</a></li>
+                        <li><a href="#stay">住宿预订</a></li>
+                        <li><a href="#guide">旅游攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>咨询热线：400-123-4567</li>
+                        <li>电子邮箱：info@bluecoast.com</li>
+                        <li>地址：河北省秦皇岛市北戴河区黄金海岸</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 北戴河蔚蓝海岸旅游服务中心. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('main-nav').classList.remove('active');
+            });
+        });
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            // Toggle current item
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+  </html>
